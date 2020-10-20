@@ -1,24 +1,13 @@
 import javafx.application.Application;
-import javafx.beans.InvalidationListener;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
-import java.util.*;
 
 /**
  * @class: Main
@@ -59,6 +48,37 @@ public class Main extends Application {
         tf2.setMaxWidth(250);
         tf2.setStyle("-fx-font-size: 16px;");
         root_list.add(tf2);
+
+        //Eventhanler Celsius to Fahrenheit
+        EventHandler<MouseEvent> fc_conv = new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+            }
+        };
+
+        //Eventhanler Fahrenheit to Celsius
+        EventHandler<MouseEvent> cf_conv = new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+            }
+        };
+
+        //Creating the Buttons
+        Button cels_fahr = new Button("Celsius -> Fahrenheit");
+        cels_fahr.setPrefWidth(250);
+        cels_fahr.setMaxHeight(25);
+        cels_fahr.setStyle("-fx-font-weight: bold;" +
+                "-fx-font-size: 20px;");
+        root_list.add(cels_fahr);
+
+        Button fahr_cels = new Button("Fahrenheit -> Celsius");
+        fahr_cels.setPrefWidth(250);
+        fahr_cels.setMaxHeight(25);
+        fahr_cels.setStyle("-fx-font-weight: bold;" +
+                "-fx-font-size: 20px;");
+        root_list.add(fahr_cels);
 
         Scene scene = new Scene(root, 600, 400);
         st.setTitle("Temp. Converter");
