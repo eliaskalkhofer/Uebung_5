@@ -54,6 +54,16 @@ public class Main extends Application {
             @Override
             public void handle(MouseEvent mouseEvent) {
 
+                try {
+
+                    double f_value = Double.parseDouble(tf2.getText());
+                    double c_value = (f_value - 32) * 5 / 9;
+                    tf1.setText(String.valueOf(c_value));
+                }
+                catch (Exception e) {
+
+                    System.out.println("Fehler! Versuchen Sie es erneut!");
+                }
             }
         };
 
@@ -72,6 +82,8 @@ public class Main extends Application {
         cels_fahr.setStyle("-fx-font-weight: bold;" +
                 "-fx-font-size: 20px;");
         root_list.add(cels_fahr);
+
+        cels_fahr.addEventHandler(MouseEvent.MOUSE_CLICKED, cf_conv);
 
         Button fahr_cels = new Button("Fahrenheit -> Celsius");
         fahr_cels.setPrefWidth(250);
