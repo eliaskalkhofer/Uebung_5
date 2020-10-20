@@ -62,6 +62,16 @@ public class Main extends Application {
             @Override
             public void handle(MouseEvent mouseEvent) {
 
+                try {
+
+                    double c_value = Double.parseDouble(tf1.getText());
+                    double f_value = (c_value * 9/5) + 32;
+                    tf2.setText(String.valueOf(f_value));
+                }
+                catch (Exception e) {
+
+                    System.out.println("Fehler! Versuchen Sie es erneut!");
+                }
             }
         };
 
@@ -79,6 +89,8 @@ public class Main extends Application {
         fahr_cels.setStyle("-fx-font-weight: bold;" +
                 "-fx-font-size: 20px;");
         root_list.add(fahr_cels);
+
+        fahr_cels.addEventHandler(MouseEvent.MOUSE_CLICKED, fc_conv);
 
         Scene scene = new Scene(root, 600, 400);
         st.setTitle("Temp. Converter");
